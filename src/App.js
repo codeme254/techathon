@@ -6,6 +6,7 @@ import About from "./About/About";
 import Speakers from "./Speakers/Speakers";
 import Organizers from "./Organizers/Organizers";
 import Pricing from "./Pricing/Pricing";
+import Schedule from "./Schedule/Schedule";
 import News from "./News/News";
 import Footer from "./Footer/Footer";
 
@@ -18,6 +19,7 @@ function App() {
       <Speakers />
       <Organizers />
       <Pricing />
+      <Schedule />
       <News />
       <Footer />
     </div>
