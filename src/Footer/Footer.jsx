@@ -3,7 +3,7 @@ import { LinkedIn, Twitter, Facebook, Instagram } from "../Icons/Icons";
 
 const Footer = () => {
     return(
-        <footer className="footer">
+        <footer className="footer" id="contact">
             <h2 className="footer__logo">tec<span>hathon</span></h2>
             <nav className="footer__nav">
                 <ol className="footer__nav-list">

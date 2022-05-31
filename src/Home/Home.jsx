@@ -36,7 +36,10 @@ const Home = () => {
               <span className="countdown__element--desc">seconds</span>
             </div>
           </div>
-          <ButtonTicket text="book ticket" to={"/"} />
+          <ButtonTicket
+            text="book ticket"
+            to={"https://www.linkedin.com/in/otwoma"}
+          />
         </div>
       </div>
       {/* </div> */}

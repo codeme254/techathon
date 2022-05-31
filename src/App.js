@@ -18,8 +18,8 @@ function App() {
       <About />
       <Speakers />
       <Organizers />
-      <Pricing />
       <Schedule />
+      <Pricing />
       <News />
       <Footer />
     </div>

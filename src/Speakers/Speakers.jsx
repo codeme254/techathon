@@ -7,7 +7,7 @@ import { speakersData } from "./speakersdata";
 const Speakers = () => {
   
   return (
-    <section className="speakers__section">
+    <section className="speakers__section" id="speakers">
       <Title
         mainTitle="speakers"
         description="Important people who will be sharing something in the event"

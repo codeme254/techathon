@@ -4,7 +4,7 @@ import { Star } from "../Icons/Icons";
 
 const Pricing = () => {
   return (
-    <section className="pricing-section">
+    <section className="pricing-section" id="pricing">
       {/* <Title mainTitle="Pricing" description="The event is free but do you want to get exclusive benefits including catering, accomodation and personal mentorship? Then choose your plan" /> */}
       <div className="pricing-cards-container">
         {/* first pricing */}

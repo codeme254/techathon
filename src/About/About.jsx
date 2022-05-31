@@ -5,7 +5,7 @@ import { Transport, Catering, Hotel, Map } from "../Icons/Icons";
 
 const About = () => {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <div className="about__container">
         <AboutCard
           icon={<Map />}

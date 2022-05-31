@@ -11,6 +11,35 @@ html {
   font-size: 62.5%;
 }
 
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+}
+
 :root {
   --color-gray-main: #555;
   --color-white: #fff;
@@ -20,6 +49,7 @@ html {
   --color-sub: #f9488b;
   --padding-left-match: 9rem;
   --shedule-marg-bottom-match: 1rem;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,6 +58,16 @@ body {
   font-size: 1.5rem;
   line-height: 1.7;
   position: relative;
+}
+
+@media screen and (min-width: 2000px) {
+  html {
+    font-size: 64%;
+  }
+  body {
+    max-width: 1800px;
+    margin: 1rem auto;
+  }
 }
 
 .button__book,
@@ -83,9 +123,10 @@ body {
   align-items: center;
   padding-left: var(--padding-left-match);
   padding-right: 3rem;
-  position: sticky;
+  position: fixed !important;
   top: 0;
   left: 0;
+  width: 100%;
   background-color: var(--color-white);
   z-index: 3000000;
   /* position: fixed;
@@ -143,11 +184,63 @@ body {
   text-transform: capitalize;
   transition: all 0.4s ease;
 }
+
+.hamburger-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: none;
+}
+
+.hamburger-button > *:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.hamburger {
+  width: 40px;
+  height: 4px;
+  background-color: var(--color-primary-main);
+}
+
+.header__nav--active {
+  transform: translateX(0) !important;
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 900px) {
+  .hamburger-button {
+    display: block;
+  }
+
+  .header__nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--color-primary-main);
+    padding: 0 4rem;
+    transform: translateX(120%);
+  }
+
+  .header__nav--list {
+    flex-direction: column;
+  }
+
+  .header__nav--list > * {
+    margin-bottom: 3.5rem;
+  }
+
+  .header__nav--link {
+    color: var(--color-white) !important;
+  }
+}
 /* End of Navigation */
 
 /* Home */
 .home {
   display: flex;
+  margin-top: 4rem;
 
   /* experimental */
   /* padding-left: var(--padding-left-match); */
@@ -234,6 +327,29 @@ body {
   position: relative;
   display: block;
   transform: translateY(5px);
+}
+
+@media screen and (max-width: 1000px) {
+  .home {
+    min-height: 90vh;
+    /* background:linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .2)),url(./assets/images/speaker-main-home.png); */
+    background: url(./assets/images/speaker-main-home.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .home__box:first-of-type {
+    flex: 0 0 100%;
+  }
+
+  .home__title--venue-dt {
+    color: var(--color-white);
+    color: #171822;
+  }
+
+  .countdown__element--desc {
+    color: #171822;
+  }
 }
 /* End of Home */
 
@@ -391,31 +507,38 @@ body {
 /* organizers section */
 .organizers-section {
   margin-bottom: 3rem;
+  margin-top: 10rem;
 }
 
 .organizers__container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 10rem;
+  margin-top: 4rem;
   padding: 1rem;
   background-color: var(--color-primary-main);
 }
 
-.organizer {
+.organizers__cards--scroll-help {
   position: relative;
   width: 45vw;
-  max-width: 45vw;
-  min-width: 45vw;
+  min-height: 30rem;
+  margin: auto;
+  overflow: hidden;
+}
+
+.organizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
   min-height: 20rem;
+  transition: all 1s ease;
 }
 
 .organizer > * {
   width: 48%;
-  /* border: 1px solid red; */
 }
 
 .organizer__image {
@@ -498,18 +621,33 @@ body {
   height: var(--size);
   border-radius: 50%;
   font-size: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: none;
   outline: none;
   background-color: var(--color-primary-light);
   color: var(--color-white);
   cursor: pointer;
+  position: relative;
+}
+
+.organizers__scrollbtn span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: max-content;
+  height: max-content;
 }
 
 .scrollbtn-left {
   margin-right: 1rem;
+}
+
+@media screen and (max-width: 950px) {
+  .organizers__cards--scroll-help {
+    width: 90vw;
+    margin: auto;
+  }
 }
 /* end of organizers section */
 
@@ -539,6 +677,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
 
   padding: 2rem 0;
   padding-bottom: 0;
@@ -631,6 +770,15 @@ body {
 
 .pricing__book:hover {
   transform: translateY(50%) scale(1.1);
+}
+
+@media screen and (max-width: 1200px) {
+  .pricing-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    justify-items: center;
+    gap: 3rem;
+  }
 }
 /* End of Pricing section */
 
@@ -798,6 +946,39 @@ body {
   margin-right: 0.5rem;
   fill: var(--color-primary-main);
 }
+
+@media screen and (max-width: 1250px) {
+  .schedule__container-main {
+    width: 100%;
+  }
+
+  .schedule__button {
+    align-self: stretch;
+    border-bottom: 1px solid #999;
+    /* box-shadow: 0 0 8px #666; */
+  }
+
+  .schedule__container--buttons {
+    width: fit-content;
+    /* border: 1px solid green; */
+    display: flex;
+    flex-wrap: wrap !important;
+    /* box-shadow: none; */
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .schedule-card {
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .schedule-card > *:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+}
 /* end of shedule section */
 
 /* News section */
@@ -890,6 +1071,13 @@ body {
   font-weight: 600;
   letter-spacing: 1.2px;
   margin-bottom: 1.3rem;
+}
+
+@media screen and (max-width: 700px) {
+  .news__container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 /* End of News section */
 
@@ -984,5 +1172,13 @@ body {
   width: var(--size);
   height: var(--size);
   fill: currentColor;
+}
+
+@media screen and (max-width: 500px) {
+  .footer__nav-list {
+    width: fit-content;
+    flex-wrap: wrap;
+    margin: auto;
+  }
 }
 /* End of Footer */

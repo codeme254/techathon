@@ -49,7 +49,7 @@ const Schedule = () => {
     });
   };
   return (
-    <section className="schedule-section">
+    <section className="schedule-section" id="schedule">
       <div className="schedule__container-main">
         <div className="schedule__container--buttons" ref={buttonsContainerRef}>
           <button
