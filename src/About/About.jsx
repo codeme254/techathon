@@ -1,5 +1,4 @@
 import React from "react";
-import { Calendar } from "../Icons/Icons";
 import AboutCard from "./AboutCard";
 import { Transport, Catering, Hotel, Map } from "../Icons/Icons";
 
